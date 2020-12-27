@@ -227,36 +227,24 @@ int KYX5461AS::printInt(int num, bool displayTrailing = true, int delayBwNums = 
     outputArr[3] = (num%-10)/-1 + '0';
   }
   
-  ::KYX5461AS::print(outputArr[0],1);
-  delay(delayBwNums);
-  ::KYX5461AS::print(outputArr[1],2);
-  delay(delayBwNums);
-  ::KYX5461AS::print(outputArr[2],3);
-  delay(delayBwNums);
-  ::KYX5461AS::print(outputArr[3],4);
-  delay(delayBwNums);
+  for(int i = 0; i < sizeof outputArr; i++) {
+    ::KYX5461AS::print(outputArr[i],i+1);
+    delay(delayBwNums);
+  }
   
   return 0;  
 }
 
 void KYX5461AS::printNums(char nums[], int delayBwNums = 4) {
-  ::KYX5461AS::print(nums[0],1);
-  delay(delayBwNums);
-  ::KYX5461AS::print(nums[1],2);
-  delay(delayBwNums);
-  ::KYX5461AS::print(nums[2],3);
-  delay(delayBwNums);
-  ::KYX5461AS::print(nums[3],4);
-  delay(delayBwNums);
+  for(int i = 0; i < sizeof nums; i++) {
+    ::KYX5461AS::print(nums[i],i+1);
+    delay(delayBwNums);
+  }
 }
 
 void KYX5461AS::printAll(char nums[], bool dpPos[], int delayBwNums = 4) {
-  ::KYX5461AS::print(nums[0],1,dpPos[0]);
-  delay(delayBwNums);
-  ::KYX5461AS::print(nums[1],2,dpPos[1]);
-  delay(delayBwNums);
-  ::KYX5461AS::print(nums[2],3,dpPos[2]);
-  delay(delayBwNums);
-  ::KYX5461AS::print(nums[3],4,dpPos[3]);
-  delay(delayBwNums);
+  for(int i = 0; i < sizeof nums; i++) {
+    ::KYX5461AS::print(nums[i],i+1,dpPos[i]);
+    delay(delayBwNums);
+  }
 }
