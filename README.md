@@ -41,9 +41,10 @@ The order of the pins provided in the function's arguments goes:
 11. Digit 3
 12. Digit 4
 
-[Segment Diagram](https://commons.wikimedia.org/wiki/File%3A7_segment_display_labeled.svg)
-
+Make sure you pay attention to this diagram!
 ![display pins](https://www.circuitbasics.com/wp-content/uploads/2017/05/Arduino-7-Segment-Tutorial-4-Digit-Display-Pin-Diagram-768x440.png)
+
+[If you are wondering what 'segments' are, click here.](https://commons.wikimedia.org/wiki/File%3A7_segment_display_labeled.svg)
 
 ## Use
 This library provides a number of methods for KYX5461AS type objects.
