@@ -195,7 +195,7 @@ void KYX5461AS::print(int numToPrint, int displayDigit, bool decPoint = false) {
     digitalWrite(_pinDp, LOW);
 }
 
-void KYX5461AS::printAll(int nums[], int delayBwNums = 4, bool dpPos[] = NULL) {
+void KYX5461AS::printAll(int nums[], bool dpPos[] = NULL, int delayBwNums = 4) {
   ::KYX5461AS::print(nums[0],1,dpPos[0]);
   delay(delayBwNums);
   ::KYX5461AS::print(nums[1],2,dpPos[1]);
