@@ -12,5 +12,5 @@ void loop() {
   
   screen1.reset();
   char printNums[] = {'8','0','0','8'};
-  screen1.printInt(3);
+  screen1.printInt(-365);
 }

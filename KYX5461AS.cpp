@@ -213,26 +213,18 @@ int KYX5461AS::printInt(int num, bool displayTrailing = true, int delayBwNums = 
   if (num < -999 || num > 9999)
     return 1;
   
-  int printArr[4];
   char outputArr[4];
   
   if(num >= 0) {
-    printArr[0] = (num%10000)/1000;
-    printArr[1] = (num%1000)/100;
-    printArr[2] = (num%100)/10;
-    printArr[3] = (num%10);
+    outputArr[0] = (num%10000)/1000 + '0';
+    outputArr[1] = (num%1000)/100 + '0';
+    outputArr[2] = (num%100)/10 + '0';
+    outputArr[3] = (num%10) + '0';
   } else {
     outputArr[0] = '-';
-    printArr[1] = (num%-1000)/100;
-    printArr[2] = (num%-100)/10;
-    printArr[3] = (num%-10);
-  }
-  
-  for(int i = 0; i < sizeof printArr; i++) {
-    if(outputArr[i] == '-') 
-      continue;
-    
-    outputArr[i] = printArr[i] + '0';
+    outputArr[1] = (num%-1000)/-100 + '0';
+    outputArr[2] = (num%-100)/-10 + '0';
+    outputArr[3] = (num%-10)/-1 + '0';
   }
   
   ::KYX5461AS::print(outputArr[0],1);
