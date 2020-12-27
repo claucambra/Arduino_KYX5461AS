@@ -54,7 +54,7 @@ void KYX5461AS::reset() {
   digitalWrite(_pinDp, LOW);
 }
 
-void KYX5461AS::print(int numToPrint, int displayDigit, bool decPoint = false) {
+int KYX5461AS::print(char numToPrint, int displayDigit, bool decPoint = false) {
   int D1State, D2State, D3State, D4State;
   switch(displayDigit) {
     case 1:
@@ -89,98 +89,109 @@ void KYX5461AS::print(int numToPrint, int displayDigit, bool decPoint = false) {
   digitalWrite(_D4, D4State);
 
   int pinAstate, pinBstate, pinCstate, pinDstate, pinEstate, pinFstate, pinGstate;
-  switch(numToPrint) {
-    case 0:
-      pinAstate = HIGH;   
-      pinBstate = HIGH;   
-      pinCstate = HIGH;   
-      pinDstate = HIGH;   
-      pinEstate = HIGH;   
-      pinFstate = HIGH;   
-      pinGstate = LOW;
-      break;
-    case 1:
-      pinAstate = LOW;   
-      pinBstate = HIGH;   
-      pinCstate = HIGH;   
-      pinDstate = LOW;   
-      pinEstate = LOW;   
-      pinFstate = LOW;   
-      pinGstate = LOW;
-      break;
-    case 2:
-      pinAstate = HIGH;   
-      pinBstate = HIGH;   
-      pinCstate = LOW;   
-      pinDstate = HIGH;   
-      pinEstate = HIGH;   
-      pinFstate = LOW;   
-      pinGstate = HIGH;
-      break;
-    case 3:
-      pinAstate = HIGH;   
-      pinBstate = HIGH;   
-      pinCstate = HIGH;   
-      pinDstate = HIGH;   
-      pinEstate = LOW;   
-      pinFstate = LOW;   
-      pinGstate = HIGH;
-      break;
-    case 4:
-      pinAstate = LOW;   
-      pinBstate = HIGH;   
-      pinCstate = HIGH;   
-      pinDstate = LOW;   
-      pinEstate = LOW;   
-      pinFstate = HIGH;   
-      pinGstate = HIGH;
-      break;
-    case 5:
-      pinAstate = HIGH;   
-      pinBstate = LOW;   
-      pinCstate = HIGH;   
-      pinDstate = HIGH;   
-      pinEstate = LOW;   
-      pinFstate = HIGH;   
-      pinGstate = HIGH;
-      break;
-    case 6:
-      pinAstate = HIGH;   
-      pinBstate = LOW;   
-      pinCstate = HIGH;   
-      pinDstate = HIGH;   
-      pinEstate = HIGH;   
-      pinFstate = HIGH;   
-      pinGstate = HIGH;
-      break;
-    case 7:
-      pinAstate = HIGH;   
-      pinBstate = HIGH;   
-      pinCstate = HIGH;   
-      pinDstate = LOW;   
-      pinEstate = LOW;   
-      pinFstate = LOW;   
-      pinGstate = LOW;
-      break;
-    case 8:
-      pinAstate = HIGH;   
-      pinBstate = HIGH;   
-      pinCstate = HIGH;   
-      pinDstate = HIGH;   
-      pinEstate = HIGH;   
-      pinFstate = HIGH;   
-      pinGstate = HIGH;
-      break;
-    case 9:
-      pinAstate = HIGH;   
-      pinBstate = HIGH;   
-      pinCstate = HIGH;   
-      pinDstate = HIGH;   
-      pinEstate = LOW;   
-      pinFstate = HIGH;   
-      pinGstate = HIGH;
-      break;
-  }
+  if(numToPrint - '0' < 10 && numToPrint - '0' >= 0) {
+    switch(numToPrint - '0') {
+      case 0:
+        pinAstate = HIGH;   
+        pinBstate = HIGH;   
+        pinCstate = HIGH;   
+        pinDstate = HIGH;   
+        pinEstate = HIGH;   
+        pinFstate = HIGH;   
+        pinGstate = LOW;
+        break;
+      case 1:
+        pinAstate = LOW;   
+        pinBstate = HIGH;   
+        pinCstate = HIGH;   
+        pinDstate = LOW;   
+        pinEstate = LOW;   
+        pinFstate = LOW;   
+        pinGstate = LOW;
+        break;
+      case 2:
+        pinAstate = HIGH;   
+        pinBstate = HIGH;   
+        pinCstate = LOW;   
+        pinDstate = HIGH;   
+        pinEstate = HIGH;   
+        pinFstate = LOW;   
+        pinGstate = HIGH;
+        break;
+      case 3:
+        pinAstate = HIGH;   
+        pinBstate = HIGH;   
+        pinCstate = HIGH;   
+        pinDstate = HIGH;   
+        pinEstate = LOW;   
+        pinFstate = LOW;   
+        pinGstate = HIGH;
+        break;
+      case 4:
+        pinAstate = LOW;   
+        pinBstate = HIGH;   
+        pinCstate = HIGH;   
+        pinDstate = LOW;   
+        pinEstate = LOW;   
+        pinFstate = HIGH;   
+        pinGstate = HIGH;
+        break;
+      case 5:
+        pinAstate = HIGH;   
+        pinBstate = LOW;   
+        pinCstate = HIGH;   
+        pinDstate = HIGH;   
+        pinEstate = LOW;   
+        pinFstate = HIGH;   
+        pinGstate = HIGH;
+        break;
+      case 6:
+        pinAstate = HIGH;   
+        pinBstate = LOW;   
+        pinCstate = HIGH;   
+        pinDstate = HIGH;   
+        pinEstate = HIGH;   
+        pinFstate = HIGH;   
+        pinGstate = HIGH;
+        break;
+      case 7:
+        pinAstate = HIGH;   
+        pinBstate = HIGH;   
+        pinCstate = HIGH;   
+        pinDstate = LOW;   
+        pinEstate = LOW; 
+        pinFstate = LOW;   
+        pinGstate = LOW;
+        break;
+      case 8:
+        pinAstate = HIGH;   
+        pinBstate = HIGH;   
+        pinCstate = HIGH;   
+        pinDstate = HIGH;   
+        pinEstate = HIGH;   
+        pinFstate = HIGH;   
+        pinGstate = HIGH;
+        break;
+      case 9:
+        pinAstate = HIGH;   
+        pinBstate = HIGH;   
+        pinCstate = HIGH;   
+        pinDstate = HIGH;   
+        pinEstate = LOW;   
+        pinFstate = HIGH;   
+        pinGstate = HIGH;
+        break;
+    }
+  } else if(numToPrint == '-'){
+        pinAstate = LOW;   
+        pinBstate = LOW;   
+        pinCstate = LOW;   
+        pinDstate = LOW;   
+        pinEstate = LOW;   
+        pinFstate = LOW;   
+        pinGstate = HIGH;
+  } else
+    return 1;
 
   digitalWrite(_pinA, pinAstate);   
   digitalWrite(_pinB, pinBstate);   
@@ -194,9 +205,49 @@ void KYX5461AS::print(int numToPrint, int displayDigit, bool decPoint = false) {
     digitalWrite(_pinDp, HIGH);
   else
     digitalWrite(_pinDp, LOW);
+  
+  return 0;
 }
 
-void KYX5461AS::printNums(int nums[], int delayBwNums = 4) {
+int KYX5461AS::printInt(int num, bool displayTrailing = true, int delayBwNums = 4) {
+  if (num < -999 || num > 9999)
+    return 1;
+  
+  int printArr[4];
+  char outputArr[4];
+  
+  if(num >= 0) {
+    printArr[0] = (num%10000)/1000;
+    printArr[1] = (num%1000)/100;
+    printArr[2] = (num%100)/10;
+    printArr[3] = (num%10);
+  } else {
+    outputArr[0] = '-';
+    printArr[1] = (num%-1000)/100;
+    printArr[2] = (num%-100)/10;
+    printArr[3] = (num%-10);
+  }
+  
+  for(int i = 0; i < sizeof printArr; i++) {
+    if(outputArr[i] == '-') 
+      continue;
+    
+    outputArr[i] = printArr[i] + '0';
+  }
+  
+  ::KYX5461AS::print(outputArr[0],1);
+  delay(delayBwNums);
+  ::KYX5461AS::print(outputArr[1],2);
+  delay(delayBwNums);
+  ::KYX5461AS::print(outputArr[2],3);
+  delay(delayBwNums);
+  ::KYX5461AS::print(outputArr[3],4);
+  delay(delayBwNums);
+  
+  return 0;  
+}
+
+void KYX5461AS::printNums(char nums[], int delayBwNums = 4) {
   ::KYX5461AS::print(nums[0],1);
   delay(delayBwNums);
   ::KYX5461AS::print(nums[1],2);
@@ -207,7 +258,7 @@ void KYX5461AS::printNums(int nums[], int delayBwNums = 4) {
   delay(delayBwNums);
 }
 
-void KYX5461AS::printAll(int nums[], bool dpPos[], int delayBwNums = 4) {
+void KYX5461AS::printAll(char nums[], bool dpPos[], int delayBwNums = 4) {
   ::KYX5461AS::print(nums[0],1,dpPos[0]);
   delay(delayBwNums);
   ::KYX5461AS::print(nums[1],2,dpPos[1]);
