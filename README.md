@@ -74,7 +74,7 @@ display.printInt(-365);
 //OUTPUT: -365
 ```
 
-### display.printNums(char array1, integer2)
+### display.printNoDp(char array1, integer2)
 This method simplifies printing numbers to the display by simply requiring you to provide an array of numbers to print.
 This array should have numbers at indexes corresponding to their positions on the display, i.e. array[0] will print to the first display digit, array[1] to the second digit, and so on.
 
