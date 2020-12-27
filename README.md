@@ -79,7 +79,7 @@ This array should have numbers at indexes corresponding to their positions on th
 The second argument for this method works in the exact same way as the previous method's: it allows you to choose the delay between the displaying of each number on the display.
 
 ```C++
-int numsToPrint[] = {'4','3','2','1'};
+har numsToPrint[] = {'4','3','2','1'};
 display.printNums(numsToPrint);
 //OUTPUT: 4321
 ```
@@ -88,7 +88,7 @@ display.printNums(numsToPrint);
 This method works in almost the exact same way as the previous *display.printNums*, except it also allows you to select which decimal points you'd like to engage in the second argument.
 
 ```C++
-int numsToPrint[] = {'4','3','2','1'};
+char numsToPrint[] = {'4','3','2','1'};
 bool decimalsToShow[] = {false, true, true, false};
-display.printNums{numsToPrint, decimalsToShow};
+display.printAll(numsToPrint, decimalsToShow);
 //OUTPUT: 43.2.1
