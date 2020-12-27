@@ -9,5 +9,5 @@ void setup() {
 void loop() {
   // put your main code here, to run repeatedly:
   int printNums[] = {1,2,3,4};
-  screen1.printAll(printNums);
+  screen1.printAll(printNums, {false, false, false, false});
 }

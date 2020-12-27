@@ -51,6 +51,7 @@ void KYX5461AS::reset() {
   digitalWrite(_pinE, LOW);   
   digitalWrite(_pinF, LOW);   
   digitalWrite(_pinG, LOW);
+  digitalWrite(_pinDp, LOW);
 }
 
 void KYX5461AS::print(int numToPrint, int displayDigit, bool decPoint = false) {
