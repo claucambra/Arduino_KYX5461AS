@@ -11,7 +11,7 @@
 #include "Arduino.h"
 #include "KYX5461AS.h"
 
-KYX5461AS::KYX5461AS(int boardA, int boardB, int boardC, int boardD, int boardE, int boardF, int boardG, int boardD1, int boardD2, int boardD3, int boardD4) {
+KYX5461AS::KYX5461AS(int boardA, int boardB, int boardC, int boardD, int boardE, int boardF, int boardG, int boardDp, int boardD1, int boardD2, int boardD3, int boardD4) {
 	_pinA = boardA;
 	_pinB = boardB;
 	_pinC = boardC;
@@ -19,6 +19,7 @@ KYX5461AS::KYX5461AS(int boardA, int boardB, int boardC, int boardD, int boardE,
 	_pinE = boardE;
 	_pinF = boardF;
 	_pinG = boardG;
+	_pinDp = boardDp;
 	_D1 = boardD1;
 	_D2 = boardD2;
 	_D3 = boardD3;
@@ -30,7 +31,8 @@ KYX5461AS::KYX5461AS(int boardA, int boardB, int boardC, int boardD, int boardE,
 	pinMode(_pinD, OUTPUT);     
 	pinMode(_pinE, OUTPUT);     
 	pinMode(_pinF, OUTPUT);     
-	pinMode(_pinG, OUTPUT);   
+	pinMode(_pinG, OUTPUT); 
+	pinMode(_pinDp, OUTPUT);
 	pinMode(_D1, OUTPUT);  
 	pinMode(_D2, OUTPUT);  
 	pinMode(_D3, OUTPUT);  
@@ -51,7 +53,7 @@ void KYX5461AS::reset() {
   digitalWrite(_pinG, LOW);
 }
 
-void KYX5461AS::print(int numToPrint, int displayDigit) {
+void KYX5461AS::print(int numToPrint, int displayDigit, bool decPoint = false) {
   int D1State, D2State, D3State, D4State;
   switch(displayDigit) {
     case 1:
@@ -187,6 +189,10 @@ void KYX5461AS::print(int numToPrint, int displayDigit) {
   digitalWrite(_pinF, pinFstate);   
   digitalWrite(_pinG, pinGstate);
 
+  if(decPoint == true) 
+    digitalWrite(_pinDp, HIGH);
+  else
+    digitalWrite(_pinDp, LOW);
 }
 
 void KYX5461AS::printAll(int nums[], int delayBwNums = 4) {

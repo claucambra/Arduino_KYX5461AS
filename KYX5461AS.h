@@ -15,9 +15,9 @@
 
 class KYX5461AS {
 	public:
-		KYX5461AS(int boardA, int boardB, int boardC, int boardD, int boardE, int boardF, int boardG, int boardD1, int boardD2, int boardD3, int boardD4);
+		KYX5461AS(int boardA, int boardB, int boardC, int boardD, int boardE, int boardF, int boardG, int boardDp, int boardD1, int boardD2, int boardD3, int boardD4);
 		void reset();
-		void print(int numToPrint, int displayDigit);
+		void print(int numToPrint, int displayDigit, bool decPoint = false);
 		void printAll(int nums[], int delayBwNums = 4);
 	private:
 		int _pinA;
@@ -27,6 +27,7 @@ class KYX5461AS {
 		int _pinE;
 		int _pinF;
 		int _pinG;
+		int _pinDp;
 		int _D1;
 		int _D2;
 		int _D3;
