@@ -420,7 +420,7 @@ int KYX5461AS::printInt(int num, bool displayTrailing = true, int delayBwNums = 
   return 0;  
 }
 
-void KYX5461AS::printNums(char nums[], int delayBwNums = 4) {
+void KYX5461AS::printNoDp(char nums[], int delayBwNums = 4) {
   for(int i = 0; i < 4; i++) {
     ::KYX5461AS::print(nums[i],i+1);
     delay(delayBwNums);

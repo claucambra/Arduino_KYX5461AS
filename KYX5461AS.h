@@ -19,7 +19,7 @@ class KYX5461AS {
 		void reset();
 		int print(char numToPrint, int displayDigit, bool decPoint = false);
 		void printAll(char nums[], bool dpPos[] = NULL, int delayBwNums = 4);
-		void printNums(char nums[], int delayBwNums = 4);
+		void printNoDp(char nums[], int delayBwNums = 4);
 		int printInt(int num, bool displayTrailing = true, int delayBwNums = 4);
 	private:
 		int _pinA;

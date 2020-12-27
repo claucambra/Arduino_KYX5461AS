@@ -7,6 +7,5 @@ void setup() {
 
 void loop() {
   screen1.reset();
-  char stuff[] = {'H','U','C','d'};
-  screen1.printNums(stuff);
+  screen1.printInt(1234);
 }
