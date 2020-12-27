@@ -89,8 +89,8 @@ int KYX5461AS::print(char numToPrint, int displayDigit, bool decPoint = false) {
   digitalWrite(_D4, D4State);
 
   int pinAstate, pinBstate, pinCstate, pinDstate, pinEstate, pinFstate, pinGstate;
-  if(numToPrint - '0' < 10 && numToPrint - '0' >= 0) {
-    switch(numToPrint - '0') {
+  if(numToPrint - '0' < 10 && numToPrint - '0' >= 0) { //Check for numbers
+    switch(numToPrint - '0') { //Convert charred numbers to int numbers
       case 0:
         pinAstate = HIGH;   
         pinBstate = HIGH;   
@@ -182,15 +182,189 @@ int KYX5461AS::print(char numToPrint, int displayDigit, bool decPoint = false) {
         pinGstate = HIGH;
         break;
     }
-  } else if(numToPrint == '-') {
-        pinAstate = LOW;   
-        pinBstate = LOW;   
-        pinCstate = LOW;   
-        pinDstate = LOW;   
-        pinEstate = LOW;   
-        pinFstate = LOW;   
-        pinGstate = HIGH;
-  } else if(numToPrint == 'N') { //Setting for none
+  } 
+  //Section for actual characters
+  else if(numToPrint == '-') {
+		pinAstate = LOW;   
+    pinBstate = LOW;   
+    pinCstate = LOW;   
+    pinDstate = LOW;   
+    pinEstate = LOW;   
+    pinFstate = LOW;   
+    pinGstate = HIGH;
+  } 
+  //Uppercase characters
+  else if(numToPrint == 'A') {
+		pinAstate = HIGH;   
+    pinBstate = HIGH;   
+    pinCstate = HIGH;   
+    pinDstate = LOW;   
+    pinEstate = HIGH;   
+    pinFstate = HIGH;   
+    pinGstate = HIGH;
+	} else if(numToPrint == 'C') {
+		pinAstate = HIGH;
+		pinBstate = LOW;
+		pinCstate = LOW;
+		pinDstate = HIGH;
+		pinEstate = HIGH;
+		pinFstate = HIGH;
+		pinGstate = LOW;
+	} else if(numToPrint == 'E') {
+		pinAstate = HIGH;   
+    pinBstate = LOW;   
+    pinCstate = LOW;   
+    pinDstate = HIGH;   
+    pinEstate = HIGH;   
+    pinFstate = HIGH;   
+    pinGstate = HIGH;
+	} else if(numToPrint == 'F') {
+		pinAstate = HIGH;   
+    pinBstate = LOW;   
+    pinCstate = LOW;   
+    pinDstate = LOW;   
+    pinEstate = HIGH;   
+    pinFstate = HIGH;   
+    pinGstate = HIGH;
+	} else if(numToPrint == 'G') {
+		pinAstate = HIGH;   
+    pinBstate = LOW;   
+    pinCstate = HIGH;   
+    pinDstate = HIGH;   
+    pinEstate = HIGH;   
+    pinFstate = HIGH;   
+    pinGstate = LOW;
+	} else if(numToPrint == 'H') {
+		pinAstate = LOW;   
+    pinBstate = HIGH;   
+    pinCstate = HIGH;   
+    pinDstate = LOW;   
+    pinEstate = HIGH;   
+    pinFstate = HIGH;   
+    pinGstate = HIGH;
+	} else if(numToPrint == 'I') {
+		pinAstate = LOW;   
+    pinBstate = LOW;   
+    pinCstate = LOW;   
+    pinDstate = LOW;   
+    pinEstate = HIGH;   
+    pinFstate = HIGH;   
+    pinGstate = LOW;
+	} else if(numToPrint == 'J') {
+		pinAstate = LOW;   
+    pinBstate = HIGH;   
+    pinCstate = HIGH;   
+    pinDstate = HIGH;   
+    pinEstate = LOW;   
+    pinFstate = LOW;   
+    pinGstate = LOW;
+	} else if(numToPrint == 'L') {
+		pinAstate = LOW;   
+    pinBstate = LOW;   
+    pinCstate = LOW;   
+    pinDstate = HIGH;   
+    pinEstate = HIGH;   
+    pinFstate = HIGH;   
+    pinGstate = LOW;
+	} else if(numToPrint == 'P') {
+		pinAstate = HIGH;
+		pinBstate = HIGH;
+		pinCstate = LOW;
+		pinDstate = LOW;
+		pinEstate = HIGH;
+		pinFstate = HIGH;
+		pinGstate = HIGH;
+	} else if(numToPrint == 'U') {
+		pinAstate = LOW;   
+    pinBstate = HIGH;   
+    pinCstate = HIGH;   
+    pinDstate = HIGH;   
+    pinEstate = HIGH;   
+    pinFstate = HIGH;   
+    pinGstate = LOW;
+	}
+	//Lowercase characters
+	else if(numToPrint == 'b') {
+		pinAstate = LOW;   
+    pinBstate = LOW;   
+    pinCstate = HIGH;   
+    pinDstate = HIGH;   
+    pinEstate = HIGH;   
+    pinFstate = HIGH;   
+    pinGstate = HIGH;
+	} else if(numToPrint == 'c') {
+		pinAstate = LOW;   
+    pinBstate = LOW;   
+    pinCstate = LOW;   
+    pinDstate = HIGH;   
+    pinEstate = HIGH;   
+    pinFstate = LOW;   
+    pinGstate = HIGH;
+	} else if(numToPrint == 'd') {
+		pinAstate = LOW;   
+    pinBstate = HIGH;   
+    pinCstate = HIGH;   
+    pinDstate = HIGH;   
+    pinEstate = HIGH;   
+    pinFstate = LOW;   
+    pinGstate = HIGH;
+	} else if(numToPrint == 'h') {
+		pinAstate = LOW;   
+    pinBstate = LOW;   
+    pinCstate = HIGH;   
+    pinDstate = LOW;   
+    pinEstate = HIGH;   
+    pinFstate = HIGH;   
+    pinGstate = HIGH;
+	} else if(numToPrint == 'n') {
+		pinAstate = LOW;   
+    pinBstate = LOW;   
+    pinCstate = HIGH;   
+    pinDstate = LOW;   
+    pinEstate = HIGH;   
+    pinFstate = LOW;   
+    pinGstate = HIGH;
+	} else if(numToPrint == 'o') {
+		pinAstate = LOW;   
+    pinBstate = LOW;   
+    pinCstate = HIGH;   
+    pinDstate = HIGH;   
+    pinEstate = HIGH;   
+    pinFstate = LOW;   
+    pinGstate = HIGH;
+	} else if(numToPrint == 'q') {
+		pinAstate = HIGH;
+		pinBstate = HIGH;
+		pinCstate = HIGH;
+		pinDstate = LOW;
+		pinEstate = LOW;
+		pinFstate = HIGH;
+		pinGstate = HIGH;
+	} else if(numToPrint == 'r') {
+		pinAstate = LOW;
+		pinBstate = LOW;
+		pinCstate = LOW;
+		pinDstate = LOW;
+		pinEstate = HIGH;
+		pinFstate = LOW;
+		pinGstate = HIGH;
+	} else if(numToPrint == 't') {
+		pinAstate = LOW;
+		pinBstate = LOW;
+		pinCstate = LOW;
+		pinDstate = HIGH;
+		pinEstate = HIGH;
+		pinFstate = HIGH;
+		pinGstate = HIGH;
+	} else if(numToPrint == 'u') {
+		pinAstate = LOW;   
+    pinBstate = LOW;   
+    pinCstate = HIGH;   
+    pinDstate = HIGH;   
+    pinEstate = HIGH;   
+    pinFstate = LOW;   
+    pinGstate = LOW;
+	} else if(numToPrint == 'N') { //Setting for none
 	  pinAstate = LOW;   
 		pinBstate = LOW;   
 		pinCstate = LOW;   
@@ -198,7 +372,7 @@ int KYX5461AS::print(char numToPrint, int displayDigit, bool decPoint = false) {
 		pinEstate = LOW;   
 		pinFstate = LOW;   
 		pinGstate = LOW;
-	} else 
+	} else
 		return 1;
 
   digitalWrite(_pinA, pinAstate);   
