@@ -182,7 +182,7 @@ int KYX5461AS::print(char numToPrint, int displayDigit, bool decPoint = false) {
         pinGstate = HIGH;
         break;
     }
-  } else if(numToPrint == '-'){
+  } else if(numToPrint == '-') {
         pinAstate = LOW;   
         pinBstate = LOW;   
         pinCstate = LOW;   
@@ -190,8 +190,16 @@ int KYX5461AS::print(char numToPrint, int displayDigit, bool decPoint = false) {
         pinEstate = LOW;   
         pinFstate = LOW;   
         pinGstate = HIGH;
-  } else
-    return 1;
+  } else if(numToPrint == 'N') { //Setting for none
+	  pinAstate = LOW;   
+		pinBstate = LOW;   
+		pinCstate = LOW;   
+		pinDstate = LOW;   
+		pinEstate = LOW;   
+		pinFstate = LOW;   
+		pinGstate = LOW;
+	} else 
+		return 1;
 
   digitalWrite(_pinA, pinAstate);   
   digitalWrite(_pinB, pinBstate);   
@@ -228,7 +236,10 @@ int KYX5461AS::printInt(int num, bool displayTrailing = true, int delayBwNums = 
   }
   
   for(int i = 0; i < sizeof outputArr; i++) {
-    ::KYX5461AS::print(outputArr[i],i+1);
+		if(outputArr[i] == '0' && displayTrailing == false)
+			::KYX5461AS::print('N',i+1); // Will cause nothing to be displayed
+		else
+			::KYX5461AS::print(outputArr[i],i+1);
     delay(delayBwNums);
   }
   

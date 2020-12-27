@@ -7,5 +7,5 @@ void setup() {
 
 void loop() {
   screen1.reset();
-  screen1.printInt(1234);
+  screen1.printInt(-3, false);
 }
