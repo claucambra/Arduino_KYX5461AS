@@ -67,6 +67,11 @@ The first argument is the integer you wish to print.
 
 The second argument, an integer, is an optional one that allows you to select the delay between the displaying of each number on the display. The default is 4, as I found this to be the best setting to prevent ghosting of the display and to avoid blinking of the digits. 
 
+```C++
+display.printInt(-365);
+//OUTPUT: -365
+```
+
 ### display.printNums(char array1, integer2)
 This method simplifies printing numbers to the display by simply requiring you to provide an array of numbers to print.
 This array should have numbers at indexes corresponding to their positions on the display, i.e. array[0] will print to the first display digit, array[1] to the second digit, and so on.
@@ -75,7 +80,7 @@ The second argument for this method works in the exact same way as the previous 
 
 ```C++
 int numsToPrint[] = {'4','3','2','1'};
-display.printNums{numsToPrint};
+display.printNums(numsToPrint);
 //OUTPUT: 4321
 ```
 
