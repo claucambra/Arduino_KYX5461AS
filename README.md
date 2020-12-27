@@ -37,7 +37,7 @@ Below, 'display' is used as a placeholder.
 ### display.reset()
 Resets the display to all digits and segments being off.
 
-### display.print(integer1, integer2, boolean)
+### display.print(char1, integer2, boolean)
 This method handles the displaying of numbers and decimla points on the display.
 
 It has two obligatory arguments and an optional one:
@@ -49,34 +49,46 @@ It has two obligatory arguments and an optional one:
 
 Example:
 ```C++
-display.print(1,1);
+display.print('1',1);
 delay(1);
-display.print(2,2,true);
+display.print('2',2,true);
 delay(1);
-display.print(3,3,false);
+display.print('3',3,false);
 delay(1);
-display.print(4,4);
+display.print('4',4);
 delay(1);
 //OUTPUT: 12.34
 ```
 
-### display.printNums(integer array1, integer2)
+### display.printInt(integer1, boolean2, integer3)
+This method allows you to print a number to your display, ranging from 9999 to -999.
+
+The first argument is the integer you wish to print.
+
+The second argument, an integer, is an optional one that allows you to select the delay between the displaying of each number on the display. The default is 4, as I found this to be the best setting to prevent ghosting of the display and to avoid blinking of the digits. 
+
+```C++
+display.printInt(-365);
+//OUTPUT: -365
+```
+
+### display.printNums(char array1, integer2)
 This method simplifies printing numbers to the display by simply requiring you to provide an array of numbers to print.
 This array should have numbers at indexes corresponding to their positions on the display, i.e. array[0] will print to the first display digit, array[1] to the second digit, and so on.
 
-The second argument, an integer, is an optional one that allows you to select the delay between the displaying of each number on the display. The default is 4, as I found this to be the best setting to prevent ghosting of the display and to avoid blinking of the digits.
+The second argument for this method works in the exact same way as the previous method's: it allows you to choose the delay between the displaying of each number on the display.
 
 ```C++
-int numsToPrint[] = {4,3,2,1};
-display.printNums{numsToPrint};
+har numsToPrint[] = {'4','3','2','1'};
+display.printNums(numsToPrint);
 //OUTPUT: 4321
 ```
 
-### display.printAll(integer array1, boolean array2, integer3)
+### display.printAll(char array1, boolean array2, integer3)
 This method works in almost the exact same way as the previous *display.printNums*, except it also allows you to select which decimal points you'd like to engage in the second argument.
 
 ```C++
-int numsToPrint[] = {4,3,2,1};
+char numsToPrint[] = {'4','3','2','1'};
 bool decimalsToShow[] = {false, true, true, false};
-display.printNums{numsToPrint, decimalsToShow};
+display.printAll(numsToPrint, decimalsToShow);
 //OUTPUT: 43.2.1
