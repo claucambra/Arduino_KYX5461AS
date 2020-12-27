@@ -79,7 +79,7 @@ This array should have numbers at indexes corresponding to their positions on th
 The second argument for this method works in the exact same way as the previous method's: it allows you to choose the delay between the displaying of each number on the display.
 
 ```C++
-har numsToPrint[] = {'4','3','2','1'};
+char numsToPrint[] = {'4','3','2','1'};
 display.printNums(numsToPrint);
 //OUTPUT: 4321
 ```
