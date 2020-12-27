@@ -5,13 +5,29 @@ An arduino library that simplifies printing to the widely available KYX-5461AS 7
 
 To enable this library you must first create a **KYX5461AS** object in your sketch.
 
-You must provide the constructor with the correct pins.
+You must first obviously connect the pins of the display to your Arduino board. Then you must provide the constructor function with the corresponding pins.
 
 ```C++
 KYX5461AS display1(2,3,4,5,6,7,8,13,9,10,11,12);
-// This creates an object with name display1 
+// This creates an object with name display1
+// Each of the numbers provided corresponds to the correct pin for each segment and digit
+/* In this example: 
+ * segA is pin2
+ * segB is pin3
+ * segC is pin4
+ * segD is pin5
+ * segE is pin6
+ * segF is pin7
+ * segG is pin8
+ * decimal point is pin13
+ * digit1 is pin9
+ * digit2 is pin10
+ * digit3 is pin11
+ * digit4 is pin12
+ */
 ```
-The order goes:
+
+The order of the pins provided in the function's arguments goes:
 1. Segment A
 2. Segment B
 3. Segment C
