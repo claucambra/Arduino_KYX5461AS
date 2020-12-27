@@ -41,7 +41,7 @@ The order of the pins provided in the function's arguments goes:
 11. Digit 3
 12. Digit 4
 
-Make sure you pay attention to this diagram!
+This diagram shows the pinouts for the display, so pay close attention to it!
 ![display pins](https://www.circuitbasics.com/wp-content/uploads/2017/05/Arduino-7-Segment-Tutorial-4-Digit-Display-Pin-Diagram-768x440.png)
 
 [If you are wondering what 'segments' are, click here.](https://commons.wikimedia.org/wiki/File%3A7_segment_display_labeled.svg)
