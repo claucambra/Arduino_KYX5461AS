@@ -8,6 +8,7 @@ void setup() {
 
 void loop() {
   // put your main code here, to run repeatedly:
+  screen1.reset();
   int printNums[] = {1,2,3,4};
-  screen1.printAll(printNums, {false, false, false, false});
+  screen1.printNums(printNums);
 }
