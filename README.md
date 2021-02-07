@@ -113,7 +113,7 @@ display.printAll(numsToPrint, decimalsToShow);
 //OUTPUT: 43.2.1
 ```
 
-## Suported characters
+## Supported characters
 | Numbers           | 0 | 1 | 2 | 3 | 4 | 5 | 6 | 7 | 8 | 9 |   |   |   |   |   |   |   |   |   |   |   |   |   |   |
 |-------------------|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|---|
 | Uppercase letters | A |   | C |   | E | F | G | H | I | J |   | L |   |   |   | P |   |   |   |   | U |   |   |   |
